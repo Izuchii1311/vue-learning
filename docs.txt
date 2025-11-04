@@ -1,0 +1,30 @@
+Struktur Folder Project
+
+public
+  |-- assets (global assets for public - optional)
+src
+  |-- assets (global assets - optional)
+  |   |-- css
+  |   |-- img
+  |   |-- eth.
+  |-- components
+  |   |-- folder (mapping by module - optional)
+  |-- core
+  |   |-- config (optional)
+  |   |-- data (json / array or object data - optional)
+  |   |-- helpers (global function - optional)
+  |   |-- helpers (global function - optional)
+  |   |-- plugins (optional)
+  |   |-- service (global function to connect with API - optional)
+  |   |-- utilities (optional)
+  |-- layouts
+  |   |-- folder (mapping by layout - optional)
+  |       |-- folder (partials component for layouts - optional)
+  |-- router
+  |-- stores (global function for interface & service action global - optional)
+  |   |-- folder (mapping by module - optional)
+  |-- types (typescript config - optional)
+  |-- views
+  |   |-- folder (mapping by module)
+  |-- main.ts / main.js
+.env
