@@ -1,4 +1,5 @@
 import DocsLayout from '@/components/layouts/DocsLayout.vue'
+import DynamicDocsLayout from '@/components/layouts/DynamicDocsLayout.vue'
 import AboutView from '@/view/public/AboutView.vue'
 import HomeView from '@/view/public/HomeView.vue'
 import MainDocsView from '@/view/public/MainDocsView.vue'
@@ -16,19 +17,38 @@ const router = createRouter({
           path: 'main-docs',
           name: 'MainDocs',
           component: MainDocsView,
-          meta: { layout: 'MainDocs', },
+          meta: {
+            layout: 'MainDocs',
+            showSidebar: true
+          },
+        },
+        {
+          path: 'docs/:category/:page',
+          name: 'DynamicDocs',
+          component: DynamicDocsLayout,
+          meta: {
+            layout: 'MainDocs',
+            showSidebar: true
+          },
+          props: true 
         },
         {
           path: 'home',
           name: 'Home',
           component: HomeView,
-          meta: { layout: 'Home', },
+          meta: {
+            layout: 'Home',
+            showSidebar: false
+          },
         },
         {
           path: 'about',
           name: 'About',
           component: AboutView,
-          meta: { layout: 'About', },
+          meta: {
+            layout: 'About',
+            showSidebar: false
+          },
         },
       ],
     },
