@@ -28,3 +28,6 @@ src
   |   |-- folder (mapping by module)
   |-- main.ts / main.js
 .env
+
+
+ke aink rapih rapihin kalo udah waktunya 
