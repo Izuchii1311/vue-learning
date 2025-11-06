@@ -1,13 +1,10 @@
 <template>
   <main class="h-screen flex flex-col bg-gray-50">
-    <!-- Navbar -->
     <NavbarComponent />
-
-    <!-- Content wrapper dengan max-width yang sama dengan navbar -->
     <div class="flex-1 overflow-hidden">
       <div class="h-full mx-auto px-6 md:px-16 lg:px-24 xl:px-32">
         <div class="flex h-full gap-6">
-          <!-- Sidebar kiri -->
+          <!-- Sidebar -->
           <SideBarComponent v-if="showSidebar" class="w-60 flex-shrink-0" />
 
           <!-- Main content area -->
@@ -15,7 +12,7 @@
             <RouterView />
           </section>
 
-          <!-- TOC kanan -->
+          <!-- TOC -->
           <TocComponent v-if="showSidebar" class="w-64 flex-shrink-0" />
         </div>
       </div>

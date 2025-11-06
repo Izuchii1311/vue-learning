@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-60 h-full overflow-y-auto py-8 pr-6">
+  <aside class="w-60 h-full overflow-y-auto py-8 pr-6 border-r border-gray-200">
     <nav class="space-y-8">
       <!-- Getting Started Section -->
       <div class="space-y-3">
@@ -8,7 +8,7 @@
         </h2>
         <div class="space-y-1">
           <router-link
-            v-for="item in gettingStartedList1"
+            v-for="item in navigationList.gettingStarted"
             :key="item.title"
             :to="{ name: item.name }"
             class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:bg-gray-100"
@@ -48,117 +48,7 @@
 </template>
 
 <script setup>
-const gettingStartedList1 = [
-  {
-    title: "Installation",
-    name: "Installation",
-  },
-  {
-    title: "Plugins",
-    name: "Plugins",
-  },
-  {
-    title: "Setup",
-    name: "Setup",
-  },
-];
-
-// const gettingStartedList = [
-//   {
-//     title: "Installation",
-//     name: "DynamicDocs",
-//     params: { category: "getting-started", page: "installation" },
-//   },
-//   {
-//     title: "Plugins",
-//     name: "DynamicDocs",
-//     params: { category: "getting-started", page: "plugins" },
-//   },
-//   {
-//     title: "Migrations",
-//     name: "DynamicDocs",
-//     params: { category: "getting-started", page: "migrations" },
-//   },
-//   {
-//     title: "Appearance",
-//     name: "DynamicDocs",
-//     params: { category: "getting-started", page: "appearance" },
-//   },
-//   {
-//     title: "Mamba UI",
-//     name: "DynamicDocs",
-//     params: { category: "getting-started", page: "mamba-ui" },
-//   },
-// ];
-
-// const dashboardList = [
-//   {
-//     title: "Header",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "header" },
-//   },
-//   {
-//     title: "Sidebar",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "sidebar" },
-//   },
-//   {
-//     title: "Footer",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "footer" },
-//   },
-//   {
-//     title: "Drawer",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "drawer" },
-//   },
-//   {
-//     title: "Page Title",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "page-title" },
-//   },
-//   {
-//     title: "Menus",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "menus" },
-//   },
-// ];
-
-// const pagesList = [
-//   {
-//     title: "Homepage",
-//     name: "DynamicDocs",
-//     params: { category: "pages", page: "homepage" },
-//   },
-//   {
-//     title: "Users",
-//     name: "DynamicDocs",
-//     params: { category: "pages", page: "users" },
-//   },
-//   {
-//     title: "Tools",
-//     name: "DynamicDocs",
-//     params: { category: "pages", page: "tools" },
-//   },
-//   {
-//     title: "Settings",
-//     name: "DynamicDocs",
-//     params: { category: "pages", page: "settings" },
-//   },
-// ];
-
-// const miscList = [
-//   {
-//     title: "Tutorials",
-//     name: "DynamicDocs",
-//     params: { category: "misc", page: "tutorials" },
-//   },
-//   {
-//     title: "Changelog",
-//     name: "DynamicDocs",
-//     params: { category: "misc", page: "changelog" },
-//   },
-// ];
+import navigationList from "@/store/data/navigationList";
 </script>
 
 <style scoped>
