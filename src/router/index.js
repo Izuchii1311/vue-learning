@@ -1,6 +1,9 @@
-import DocsLayout from '@/components/layouts/DocsLayout.vue'
-import DynamicDocsLayout from '@/components/layouts/DynamicDocsLayout.vue'
+import DocsLayout from '@/layouts/DocsLayout.vue'
+// import DynamicDocsLayout from '@/layouts/DynamicDocsLayout.vue'
 import AboutView from '@/view/public/AboutView.vue'
+import InstallationView from '@/view/public/docs/getting-started/InstallationView.vue'
+import PluginsView from '@/view/public/docs/getting-started/PluginsView.vue'
+import SetupView from '@/view/public/docs/getting-started/SetupView.vue'
 import HomeView from '@/view/public/HomeView.vue'
 import MainDocsView from '@/view/public/MainDocsView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -21,17 +24,46 @@ const router = createRouter({
             layout: 'MainDocs',
             showSidebar: true
           },
+          children: [
+            {
+              path: 'setup',
+              name: 'Setup',
+              component: SetupView,
+              meta: {
+                layout: 'MainDocs',
+                showSidebar: true
+              },
+            },
+            {
+              path: 'plugins',
+              name: 'Plugins',
+              component: PluginsView,
+              meta: {
+                layout: 'MainDocs',
+                showSidebar: true
+              },
+            },
+            {
+              path: 'installation',
+              name: 'Installation',
+              component: InstallationView,
+              meta: {
+                layout: 'MainDocs',
+                showSidebar: true
+              },
+            }
+          ]
         },
-        {
-          path: 'docs/:category/:page',
-          name: 'DynamicDocs',
-          component: DynamicDocsLayout,
-          meta: {
-            layout: 'MainDocs',
-            showSidebar: true
-          },
-          props: true 
-        },
+        // {
+        //   path: 'docs/:category/:page',
+        //   name: 'DynamicDocs',
+        //   component: DynamicDocsLayout,
+        //   meta: {
+        //     layout: 'MainDocs',
+        //     showSidebar: true
+        //   },
+        //   props: true
+        // },
         {
           path: 'home',
           name: 'Home',

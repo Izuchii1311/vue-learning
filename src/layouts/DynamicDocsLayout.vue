@@ -113,7 +113,7 @@
 import { ref, watch, computed } from "vue";
 import { useRouter } from "vue-router";
 import ContentBlock from "./ContentBlock.vue";
-import { getDocContent } from "@/data/docsContent.js";
+import { getDocContent } from "@/store/data/docsContent.js";
 
 // Props dari router
 const props = defineProps({

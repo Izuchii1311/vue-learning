@@ -1,7 +1,15 @@
+<script setup></script>
+
 <template>
-  <section>
-    <h1>
-      Main Menu
-    </h1>
-  </section>
+  <div>
+    <!-- Router View untuk menampilkan nested routes -->
+    <router-view></router-view>
+
+    <!-- Jika tidak ada child route yang aktif, tampilkan default content -->
+    <div v-if="!$route.name || $route.name === 'MainDocs'">
+      <h1>Main Documentation</h1>
+      <p>This is the main docs layout</p>
+      <p>Please select a documentation topic from the sidebar.</p>
+    </div>
+  </div>
 </template>
