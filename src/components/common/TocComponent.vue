@@ -47,7 +47,7 @@
     </nav>
 
     <!-- Back to top button -->
-    <div class="sticky bottom-0 bg-gradient-to-t from-gray-50 via-gray-50 pt-6 mt-8">
+    <div class="sticky bottom-0 bg-linear-to-t from-gray-50 via-gray-50 pt-6 mt-8">
       <button
         @click="scrollToTop"
         class="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm"

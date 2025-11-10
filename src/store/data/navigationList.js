@@ -1,66 +1,70 @@
-export const gettingStartedList = [
-  {
-    title: "Installation",
-    name: "Installation",
-  },
-  {
-    title: "Plugins",
-    name: "Plugins",
-  },
-  {
-    title: "Setup",
-    name: "Setup",
-  },
-// ];
+import { defineStore } from "pinia";
+import { ref, computed } from "vue";
 
-// export const dashboardList = [
-//   {
-//     title: "Header",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "header" },
-//   },
-//   {
-//     title: "Sidebar",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "sidebar" },
-//   },
-//   {
-//     title: "Footer",
-//     name: "DynamicDocs",
-//     params: { category: "dashboard", page: "footer" },
-//   },
-// ];
+export const useNavigationStore = defineStore("navigation", () => {
+  // State
+  const navItems = ref([
+    {
+      title: "Docs",
+      pathName: "MainDocs",
+      children: [
+        { title: "Installation", pathName: "Installation" },
+        { title: "Setup", pathName: "Setup" },
+        { title: "Plugins", pathName: "Plugins" },
+      ]
+    },
+    { title: "Home", pathName: "Home" },
+    { title: "About", pathName: "About" },
+  ]);
 
-// export const pagesList = [
-//   {
-//     title: "Homepage",
-//     name: "DynamicDocs",
-//     params: { category: "pages", page: "homepage" },
-//   },
-//   {
-//     title: "Users",
-//     name: "DynamicDocs",
-//     params: { category: "pages", page: "users" },
-//   },
-// ];
+  // getters
+  const mainNavItems = computed(() =>
+    navItems.value.map(item => ({
+      title: item.title,
+      pathName: item.pathName
+    }))
+  );
 
-// export const miscList = [
-//   {
-//     title: "Tutorials",
-//     name: "DynamicDocs",
-//     params: { category: "misc", page: "tutorials" },
-//   },
-//   {
-//     title: "Changelog",
-//     name: "DynamicDocs",
-//     params: { category: "misc", page: "changelog" },
-//   },
-];
+  const navItemsWithChildren = computed(() =>
+    navItems.value.filter(item => item.children && item.children.length > 0)
+  );
 
-// Atau jika ingin semua dalam satu object
-export default {
-  gettingStarted: gettingStartedList,
-  // dashboard: dashboardList,
-  // pages: pagesList,
-  // misc: miscList
-};
+  const getChildrenByParent = (parentName) => {
+    const parent = navItems.value.find(item => item.pathName === parentName);
+    return parent?.children || [];
+  };
+
+  const sidebarNavigation = computed(() => {
+    const docsItem = navItems.value.find(item => item.pathName === 'MainDocs');
+    return docsItem?.children || [];
+  });
+
+  // actions
+  const addNavItem = (item) => {
+    navItems.value.push(item);
+  };
+
+  const updateNavItem = (index, updatedItem) => {
+    navItems.value[index] = { ...navItems.value[index], ...updatedItem };
+  };
+
+  const removeNavItem = (index) => {
+    navItems.value.splice(index, 1);
+  };
+
+  return {
+    // State
+    navItems,
+
+    // Getters
+    mainNavItems,
+    navItemsWithChildren,
+    getChildrenByParent,
+    sidebarNavigation,
+
+    // Actions
+    addNavItem,
+    updateNavItem,
+    removeNavItem
+  };
+})
