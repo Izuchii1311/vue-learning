@@ -54,16 +54,6 @@ const router = createRouter({
             }
           ]
         },
-        // {
-        //   path: 'docs/:category/:page',
-        //   name: 'DynamicDocs',
-        //   component: DynamicDocsLayout,
-        //   meta: {
-        //     layout: 'MainDocs',
-        //     showSidebar: true
-        //   },
-        //   props: true
-        // },
         {
           path: 'home',
           name: 'Home',

@@ -42,7 +42,7 @@
 
 <script setup>
 import { useNavigationStore } from "@/store/data/navigationList";
-import { useSidebarStore } from "@/store/event/sidebarToggle";
+import { useSidebarStore } from "@/store/event/sidebarStore";
 
 const navigationStore = useNavigationStore();
 const sidebarStore = useSidebarStore();

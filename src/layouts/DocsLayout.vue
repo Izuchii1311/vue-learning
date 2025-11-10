@@ -53,17 +53,13 @@
           <div class="h-full" v-show="!sidebarStore.isCollapsed">
             <TocComponent />
           </div>
-          <!-- TOC Collapsed State: Icon/Empty Space untuk symmetry -->
           <div
             v-show="sidebarStore.isCollapsed"
             class="h-full flex items-start justify-center pt-8"
           >
-            <!-- Optional: bisa kasih icon atau biarkan kosong untuk symmetry -->
             <div class="w-1 h-1 rounded-full bg-gray-300"></div>
           </div>
         </aside>
-
-        <!-- FALLBACK: Kalau tidak ada TOC tapi sidebar collapsed, kasih spacer kanan -->
         <div
           v-else-if="showSidebar && sidebarStore.isCollapsed"
           class="hidden xl:block shrink-0 transition-all duration-300"
@@ -77,7 +73,7 @@
 <script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { useSidebarStore } from "@/store/event/sidebarToggle";
+import { useSidebarStore } from "@/store/event/sidebarStore";
 import NavbarComponent from "@/components/common/NavbarComponent.vue";
 import SideBarComponent from "@/components/common/SideBarComponent.vue";
 import TocComponent from "@/components/common/TocComponent.vue";

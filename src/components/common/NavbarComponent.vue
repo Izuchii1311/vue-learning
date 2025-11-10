@@ -267,7 +267,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useNavbarStore } from "@/store/event/navbarStore";
-import { useSidebarStore } from "@/store/event/sidebarToggle";
+import { useSidebarStore } from "@/store/event/sidebarStore";
 import { useNavigationStore } from "@/store/data/navigationList";
 
 // Store
