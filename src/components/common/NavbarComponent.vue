@@ -278,7 +278,7 @@ const sidebarStore = useSidebarStore();
 const route = useRoute();
 
 const showSidebarToggle = computed(() => {
-  return route.meta.showSidebar === true;
+  return route.meta.requiresLayout === "DocsLayout";
 });
 </script>
 

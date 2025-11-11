@@ -5,16 +5,31 @@ export const useNavigationStore = defineStore("navigation", () => {
   // State
   const navItems = ref([
     {
-      title: "Docs",
-      pathName: "MainDocs",
+      title: "Documentation",
+      pathName: "DocsOverview",
       children: [
-        { title: "Installation", pathName: "Installation" },
-        { title: "Setup", pathName: "Setup" },
-        { title: "Plugins", pathName: "Plugins" },
+        {
+          title: "Vue Installation",
+          pathName: "VueInstallation"
+        },
+        {
+          title: "Vue Setup",
+          pathName: "VueSetup"
+        },
+        {
+          title: "Vue Plugins",
+          pathName: "VuePlugins"
+        },
       ]
     },
-    { title: "Home", pathName: "Home" },
-    { title: "About", pathName: "About" },
+    {
+      title: "Home",
+      pathName: "home"
+    },
+    {
+      title: "About",
+      pathName: "about"
+    },
   ]);
 
   // getters
@@ -35,7 +50,7 @@ export const useNavigationStore = defineStore("navigation", () => {
   };
 
   const sidebarNavigation = computed(() => {
-    const docsItem = navItems.value.find(item => item.pathName === 'MainDocs');
+    const docsItem = navItems.value.find(item => item.pathName === 'DocsOverview');
     return docsItem?.children || [];
   });
 
