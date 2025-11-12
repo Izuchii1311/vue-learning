@@ -6,7 +6,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
       <!-- Header -->
       <div
-        class="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-8 border-b border-gray-200"
+        class="bg-linear-to-r from-blue-50 to-indigo-50 px-6 py-8 border-b border-gray-200"
       >
         <div class="flex items-center space-x-4">
           <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">

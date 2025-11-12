@@ -6,29 +6,36 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
       <!-- Header -->
       <div
-        class="bg-linear-to-r from-green-50 to-emerald-50 px-6 py-8 border-b border-gray-200"
+        class="bg-linear-to-r from-green-50 to-emerald-50 px-6 py-8 border-b border-gray-200 relative group"
+        @mouseenter="hoverStore.handleMouseEnter('introduction')"
+        @mouseleave="hoverStore.handleMouseLeave('introduction')"
       >
-        <div class="flex items-center space-x-4">
-          <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-            <svg
-              class="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
+        <!-- Floating Hashtag -->
+        <button
+          @click="copyStore.copySectionLink('introduction')"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 ease-in-out cursor-pointer z-10"
+          :class="hashtagClasses"
+        >
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+            />
+          </svg>
+        </button>
+
+        <!-- Content dengan margin yang berubah -->
+        <div
+          class="flex items-center space-x-4 transition-all duration-300"
+          :class="contentShiftClass"
+        >
           <div>
-            <h1 class="text-2xl font-bold text-gray-900">Vue Installation Guide</h1>
-            <p class="text-gray-600 mt-1">
-              Step-by-step guide to install Vue.js in your project
-            </p>
+            <h1 id="introduction" class="text-2xl font-bold text-gray-900 uppercase">
+              Vue Introduction
+            </h1>
+            <p class="text-gray-600 mt-1">Apa itu Vue.js? Bagaimana cara memulainya?</p>
           </div>
         </div>
       </div>
@@ -37,8 +44,14 @@
       <div class="p-6 space-y-6">
         <div class="prose max-w-none">
           <p class="text-gray-700 leading-relaxed">
-            Follow this comprehensive guide to install Vue.js and set up your development
-            environment.
+            Vue (cara pengucapannya /vjuː/, seperti view) adalah sebuah kerangka kerja nan
+            progresif untuk membangun antarmuka pengguna. Tidak seperti beberapa kerangka
+            kerja monolitik yang lain, Vue dirancang dari dasar sekali agar dapat diadopsi
+            secara bertahap. Pustaka intinya difokuskan pada layer tampilan saja, dan
+            sangat mudah untuk diintegrasikan dengan pustaka yang lain atau dengan proyek
+            yang sudah ada. Di sisi lain, Vue sangat mampu memberikan dan mendukung Single
+            Page Application yang canggih ketika dikombinasikan dengan perkakas modern dan
+            dukungan pustaka.
           </p>
         </div>
 
@@ -92,4 +105,14 @@
 
 <script setup>
 import BreadcrumbsComponent from "@/components/common/docs/BreadcrumbsComponent.vue";
+
+// ini konsepnya belum jelas, alur kodingannya masih bingung
+import { useHoverStore } from "@/store/event/idSectionStore";
+import { useCopyStore } from "@/store/event/sectionNavStore";
+
+const hoverStore = useHoverStore();
+const copyStore = useCopyStore();
+
+const hashtagClasses = hoverStore.getHashtagClasses("introduction");
+const contentShiftClass = hoverStore.getContentShiftClass("introduction");
 </script>

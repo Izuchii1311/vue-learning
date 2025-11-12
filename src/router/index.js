@@ -39,24 +39,34 @@ const router = createRouter({
           },
         },
         {
+          path: 'vue-introduction',
+          name: 'VueIntroduction',
+          component: () => import('@/view/public/docs/getting-started/IntroductionView.vue'),
+          meta: {
+            pageTitle: 'Vue Introduction',
+            breadcrumb: ['Documentation', 'Getting Started', 'Vue Introduction'],
+            showSidebar: true,
+            showToc: true,
+          },
+        },
+        {
           path: 'vue-installation',
           name: 'VueInstallation',
           component: () => import('@/view/public/docs/getting-started/InstallationView.vue'),
           meta: {
             pageTitle: 'Vue Installation Guide',
-            breadcrumb: ['Documentation', 'Vue Installation'],
+            breadcrumb: ['Documentation', 'Getting Started', 'Vue Installation'],
             showSidebar: true,
             showToc: true,
           },
         },
-
         {
           path: 'vue-setup',
           name: 'VueSetup',
           component: () => import('@/view/public/docs/getting-started/SetupView.vue'),
           meta: {
             pageTitle: 'Vue Project Setup',
-            breadcrumb: ['Documentation', 'Vue Setup'],
+            breadcrumb: ['Documentation', 'Getting Started', 'Vue Setup'],
             showSidebar: true,
             showToc: true,
           },
@@ -67,7 +77,7 @@ const router = createRouter({
           component: () => import('@/view/public/docs/getting-started/PluginsView.vue'),
           meta: {
             pageTitle: 'Vue Project Setup Plugins',
-            breadcrumb: ['Documentation', 'Vue Plugins'],
+            breadcrumb: ['Documentation', 'Getting Started', 'Vue Plugins'],
             showSidebar: true,
             showToc: true,
           },

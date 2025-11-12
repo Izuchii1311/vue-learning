@@ -9,6 +9,10 @@ export const useNavigationStore = defineStore("navigation", () => {
       pathName: "DocsOverview",
       children: [
         {
+          title: "Vue Introduction",
+          pathName: "VueIntroduction"
+        },
+        {
           title: "Vue Installation",
           pathName: "VueInstallation"
         },

@@ -52,9 +52,7 @@ const breadcrumbItems = computed(() => {
 const getRouteForBreadcrumb = (item) => {
   const breadcrumbMap = {
     Documentation: { name: "DocsOverview" },
-    "Vue Installation": { name: "VueInstallation" },
-    "Vue Setup": { name: "VueSetup" },
-    "Vue Plugins": { name: "VuePlugins" },
+    "Getting Started": { name: "VueIntroduction" },
   };
 
   return breadcrumbMap[item] || { name: "DocsOverview" };
