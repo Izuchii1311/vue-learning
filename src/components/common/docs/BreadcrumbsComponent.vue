@@ -18,7 +18,7 @@
       </li>
 
       <!-- Dynamic Breadcrumb Items -->
-      <li v-for="(item, index) in breadcrumbItems" :key="index">
+      <li v-for="(item, index) in breadcrumbItems" :key="index" class="flex items-center">
         <template v-if="index === breadcrumbItems.length - 1">
           <!-- Last Item (Current Page) -->
           <span class="text-gray-900 font-medium">
@@ -63,12 +63,12 @@ const getRouteForBreadcrumb = (item) => {
 .breadcrumbs ul {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  /* gap: 0.2rem; */
+  white-space: nowrap;
 }
 
-.breadcrumbs li:not(:first-child)::before {
-  content: ">";
-  margin: 0 0.5rem;
-  color: #9ca3af;
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
 }
 </style>
